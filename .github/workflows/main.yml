@@ -1,0 +1,23 @@
+db.ee find([$and:[{dept:"hr"},{salary:{$gt:25000}}]},{name:1,city:1,dept:1,_id:0})
+db.ee.find({$and:[{city:"borivali"},{salary:{$lt:25000}}]},{name:1})
+db.ee.find({$and:[{age:35},{salary:{$gt:25000}}]},{})
+db.ee,find({dept:"it"},{name:1,dept:1,_id:0})
+db.ee.find({$and:[{city:"delhi"},{salary:{$lt:45000}}]},{})
+
+
+from pymongo import MongoClient
+Client=MongoClient("localhost:27017")
+db=Client.EmployeeData
+def insert():
+   try:
+employeeId=input("enter empid")
+employeename=input("enter name")
+db.employee.insert_one((
+       "id":employeeId,
+       "name":employeename))
+    print("data inserted successfully")
+except exception:
+  print(str(e))
+insert()
+
+mongodump --db laxudb --collection laxuu --out path
